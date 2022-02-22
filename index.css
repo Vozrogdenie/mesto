@@ -2,5 +2,18 @@
 @import url(blocks/header/header.css);
 @import url(blocks/header/_line/header_line.css);
 
+@import url(blocks/profile/profile.css);
+@import url(blocks/profile/__box/profile__box.css);
+@import url(blocks/profile/__avatar/profile__avatar.css);
+@import url(blocks/profile/__icon/profile__icon.css);
+@import url(blocks/profile/__info/profile__info.css);
+@import url(blocks/profile/__title/profile__title.css);
+@import url(blocks/profile/add-button/add-button.css);
+@import url(blocks/profile/button/button.css);
+@import url(blocks/profile/__titleicon/profile__titleicon.css);
+@import url(blocks/profile/__subtitle/profile__subtitle.css);
+
+
 @import url(blocks/root/root.css);
+
 
