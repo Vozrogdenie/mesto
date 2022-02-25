@@ -4,6 +4,6 @@
     grid-template-areas:
         "Profile"
         "Elements"
-        "footer";
+        "Footer";
     box-sizing: border-box;
 }

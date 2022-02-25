@@ -1,0 +1,7 @@
+.elements {
+    grid-area: elements;
+    padding-left: 200px;
+    font-family: Inter;
+    max-width: 282px;
+    max-height: 361px;
+}
