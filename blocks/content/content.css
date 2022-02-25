@@ -1,0 +1,9 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    grid-template-areas:
+        "Profile"
+        "Elements"
+        "footer";
+    box-sizing: border-box;
+}

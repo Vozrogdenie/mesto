@@ -1,6 +1,6 @@
 .button {
-    padding-left: 18px;
     background-color: transparent;
     outline: none;
     border: none;
+    padding: 0;
 }

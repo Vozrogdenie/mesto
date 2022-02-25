@@ -1,13 +1,8 @@
 .profile {
+ grid-area: profile;
  padding-left: 200px;
  padding-top: 40px;
- /* max-width: 880px; */
- /* S */
  display: flex;
-
  max-width: 100%; 
- /* display: flex;
- align-items: center;
- justify-content: space-between; */ 
 
 }
