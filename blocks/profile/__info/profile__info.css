@@ -5,7 +5,7 @@
     padding-left: 30px;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 910px) {
     .profile__info {
         text-align: center;
         padding-bottom: 36px;

@@ -7,7 +7,7 @@
         width: 24px;
         height: 24px;
 }
-@media all and (max-width: 800px) {
+@media all and (max-width: 910px) {
         .profile__icon {
             padding: 5.25px; 
             margin-left: 10px;
