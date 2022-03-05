@@ -1,5 +1,19 @@
 .root {
+    display: grid;
+    
+    margin: 0 auto;
     background-color: #000000;
     margin: 0;
     color: #FFFFFF;
+    grid-template-areas: "header"
+    "profile"
+    "elements"
+    "footer";
+}
+
+
+@media all and (max-width: 800px) {
+    .root {
+        /* padding: 28px 19px 36px 19px; */
+    }
 }
