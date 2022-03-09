@@ -1,0 +1,12 @@
+.popup{
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background-color: #00000080;
+padding-top: 195px;
+padding-left: 425px;
+padding-right: 425px;
+padding-bottom: 0;
+}

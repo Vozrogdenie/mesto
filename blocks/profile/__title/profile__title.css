@@ -1,5 +1,4 @@
 .profile__title {
-    width: 294px;
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
@@ -9,11 +8,12 @@
     margin-top: 22px;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 910px) {
     .profile__title {
         
         font-size: 27px;
         line-height: 33px;
         text-align: center;
+        margin: 22px auto 22px auto;
     }
 }

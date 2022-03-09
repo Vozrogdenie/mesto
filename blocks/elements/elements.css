@@ -10,7 +10,7 @@
 
 @media all and (max-width: 910px) {
     .elements {
-    
+        justify-content: center;
         grid-template-columns: repeat(1, minmax(auto, 282px));
 
     }

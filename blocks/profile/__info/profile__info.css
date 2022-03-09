@@ -9,5 +9,6 @@
     .profile__info {
         text-align: center;
         padding-bottom: 36px;
+        margin: auto;
     }
 }
