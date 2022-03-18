@@ -3,6 +3,6 @@
 }
 @media all and (max-width: 910px) {
     .profile__box {
-flex-direction: column;
+        flex-direction: column;
     }
 }

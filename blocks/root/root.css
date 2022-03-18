@@ -1,6 +1,5 @@
 .root {
     display: grid;
-    
     margin: 0 auto ;
     background-color: #000000;
     color: #FFFFFF;
@@ -9,11 +8,4 @@
     "elements"
     "footer";
     max-width: 882px;
-}
-
-
-@media all and (max-width: 910px) {
-    .root {
-        /* padding: 28px 19px 36px 19px; */
-    }
 }

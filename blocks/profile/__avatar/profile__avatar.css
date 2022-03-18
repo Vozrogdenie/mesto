@@ -6,9 +6,6 @@
 
 @media all and (max-width: 910px) {
     .profile__avatar {
-        
-        
-        align-self: center;
-        
+        align-self: center;   
     }
 }
