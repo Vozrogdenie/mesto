@@ -1,13 +1,13 @@
 .profile__info {
     max-height: 73px;
     top: 62px;
-    padding-left: 30px;
 }
 
 @media all and (max-width: 910px) {
     .profile__info {
-        text-align: center;
         padding-bottom: 36px;
-        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
