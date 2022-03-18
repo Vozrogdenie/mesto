@@ -11,3 +11,7 @@
         margin: 36px auto 36px auto;
     }
 }
+
+.add-button:hover{
+    opacity: 0.6;
+}

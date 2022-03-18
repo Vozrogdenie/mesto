@@ -5,3 +5,16 @@
     width: 32px;
     height: 32px;
 }
+
+@media (max-width:800px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+        top: -40px;
+        right: 0px;
+    }
+}
+
+.popup__close:hover{
+    opacity: 0.6;
+}

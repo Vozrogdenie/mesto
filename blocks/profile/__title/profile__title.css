@@ -6,6 +6,7 @@
     line-height: 48px;   
     margin-bottom: 16px;
     margin-top: 22px;
+    width: max-content;
 }
 
 @media all and (max-width: 910px) {
