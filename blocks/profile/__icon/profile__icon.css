@@ -1,5 +1,4 @@
 .profile__icon {
-
         border: 1px solid #fff;
         padding: 7px;
         margin-left: 18px;
@@ -11,7 +10,6 @@
         .profile__icon {
             padding: 5.25px; 
             margin-left: 10px;
-            margin-top: 8px;
             width: 7.5px;
             height: 7.5px;
         }
