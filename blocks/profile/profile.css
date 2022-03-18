@@ -7,5 +7,6 @@
 @media all and (max-width: 910px) {
     .profile {   
         padding-top: 42px;  
+        padding-bottom: 36px;
     }
 }
