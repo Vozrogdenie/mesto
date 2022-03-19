@@ -1,6 +1,6 @@
 .root {
     display: grid;
-    margin: 0 auto ;
+    margin: 0 auto;
     background-color: #000000;
     color: #FFFFFF;
     grid-template-areas: "header"
