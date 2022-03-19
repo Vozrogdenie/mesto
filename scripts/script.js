@@ -9,14 +9,18 @@ let popupSubmitBtn = document.querySelector('.popup__submit-button');
 let nameTitle = document.querySelector('.profile__title');
 let professionSubtitle = document.querySelector('.profile__subtitle');
 
-function togglePopup() {
-    popup.classList.toggle('popup__open');
+function onOpenPopup() {
+    popup.classList.add('popup__opened');
+    popup.classList.remove('popup__closed');
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
-}
-
-openPopup.addEventListener('click', togglePopup);
-closePopup.addEventListener('click', togglePopup);
+};
+function onClosePopup() {
+    popup.classList.remove('popup__opened');
+    popup.classList.add('popup__closed');
+};
+openPopup.addEventListener('click', onOpenPopup);
+closePopup.addEventListener('click', onClosePopup);
 
 function editName(event) {
     event.preventDefault();
@@ -33,6 +37,17 @@ popupProfessionInput.addEventListener('change', editProfession);
 function onSubmitBtn() {
     nameTitle.textContent = popupNameInput.value;
     professionSubtitle.textContent = popupProfessionInput.value;
-    togglePopup();
+    onClosePopup();
 };
 popupSubmitBtn.addEventListener('click', onSubmitBtn);
+
+function onEnterBtn(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        nameTitle.textContent = popupNameInput.value;
+        professionSubtitle.textContent = popupProfessionInput.value;
+        onClosePopup();
+    }
+}
+popupNameInput.addEventListener('keyup', onEnterBtn);
+popupProfessionInput.addEventListener('keyup', onEnterBtn);
