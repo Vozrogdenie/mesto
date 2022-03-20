@@ -10,13 +10,13 @@ let nameTitle = document.querySelector('.profile__title');
 let professionSubtitle = document.querySelector('.profile__subtitle');
 
 function onOpenPopup() {
-    popup.classList.add('popup__opened');
+    popup.classList.add('popup_opened');
     popup.classList.remove('popup__closed');
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
 };
 function onClosePopup() {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
     popup.classList.add('popup__closed');
 };
 openPopup.addEventListener('click', onOpenPopup);
