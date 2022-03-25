@@ -12,12 +12,14 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    cursor: pointer;
 }
 
 @media (max-width:800px) {
     .popup__submit-button {
         width: 238px;
         height: 46px;
+        margin: 45px 0 25px 0;
     }
 }
 

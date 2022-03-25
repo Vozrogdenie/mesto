@@ -1,5 +1,5 @@
 .element__heart {
-    
+  cursor: pointer;  
 }
 
 .element__heart:hover{

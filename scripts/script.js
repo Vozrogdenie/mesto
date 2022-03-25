@@ -1,9 +1,9 @@
 const popup = document.querySelector('.popup');
-const openPopup = document.querySelector('.popup-open');
+const openPopup = document.querySelector('.profile__button');
 const closePopup = popup.querySelector('.popup__close');
 
-let popupNameInput = document.querySelector('.popup__name');
-let popupProfessionInput = document.querySelector('.popup__profession');
+let popupNameInput = document.querySelector('.popup__input_value_name');
+let popupProfessionInput = document.querySelector('.popup__input_value_profession');
 let popupSubmitBtn = document.querySelector('.popup__submit-button');
 
 let nameTitle = document.querySelector('.profile__title');
@@ -11,13 +11,12 @@ let professionSubtitle = document.querySelector('.profile__subtitle');
 
 function onOpenPopup() {
     popup.classList.add('popup_opened');
-    popup.classList.remove('popup_closed');
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
 };
 function onClosePopup() {
     popup.classList.remove('popup_opened');
-    popup.classList.add('popup_closed');
+    
 };
 openPopup.addEventListener('click', onOpenPopup);
 closePopup.addEventListener('click', onClosePopup);

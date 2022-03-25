@@ -9,37 +9,36 @@
 <body class="root">
     <header class="header"> 
         <img class="header__logo" src="images/Mesto.png" alt="Логотип">
-        <div class="header__line"></div>
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__box">
-                <div class="profile__avatar">
                     <img src="images/image.jpg" class="profile__avatar" alt="Аватар">
-                </div>
                 <div class="profile__info">
                     <div class="profile__titleicon">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button class="button popup-open" type="button" aria-label="Кнопка редактирования">
-                            <img class="profile__icon " src="images/Vector.png" alt="кнопка редактирования">
+                        <button class="button profile__button" type="button" aria-label="Кнопка редактирования">
+                            <img class="profile__icon " src="images/Vectorredactirovanie.svg" alt="кнопка редактирования">
                         </button>
                     </div>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
                 <button type="button" class="button" aria-label="кнопка добавления">
-                    <img class="add-button" src="images/plus.png" alt="Кнопка добавления">
+                    <img class="add-button" src="images/Vectorplus knopka.svg" alt="Кнопка добавления">
                 </button>
             </div>
         </section>
-        <div class="popup popup_closed">
+        <div class="popup">
             <div class="popup__container">
                 <button class="button" type="button">
                     <img class="popup__close" src="images/Close.png" alt="Кнопка закрытия">
                 </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__name" type="text">
-                <input class="popup__profession" type="text">
-                <button type="submit" class="popup__submit-button">Сохранить</button>
+                    <form name="popup" class="popup__form">
+                        <input class="popup__input popup__input_value_name" type="text">
+                        <input class="popup__input popup__input_value_profession" type="text">
+                        <button type="submit" class="popup__submit-button">Сохранить</button>
+                    </form>
             </div>
         </div>
         <section class="elements">
@@ -48,7 +47,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Алтай</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -57,7 +56,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Кипр</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -66,7 +65,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Греция</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -75,7 +74,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Грузия</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -84,7 +83,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Дагестан</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -93,7 +92,7 @@
                 <div class="element__info">
                     <h2 class="element__text">Гора эльбрус</h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vector.jpg" alt="кнопка сердешки">
+                        <img class="element__heart" src="images/Vectorheart new.svg" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
