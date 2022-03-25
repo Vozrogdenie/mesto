@@ -1,5 +1,4 @@
 .profile__info {
-    max-height: 73px;
     top: 62px;
     padding-left: 30px;
     width: 336px;
@@ -7,10 +6,9 @@
 
 @media all and (max-width: 910px) {
     .profile__info {
-        padding-bottom: 36px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-self: center;
         padding-left: 0;
         width: 282px;
     }
