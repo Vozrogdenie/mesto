@@ -1,7 +1,7 @@
 .elements {
     display: grid;
     grid-area: elements;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     white-space: nowrap;
     column-gap: 17px;
     row-gap: 20px;

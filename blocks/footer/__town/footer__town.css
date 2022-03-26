@@ -1,7 +1,7 @@
 .footer__town{
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     color: #545454;
@@ -12,5 +12,8 @@
 @media (max-width:910px) {
     .footer__town {
        padding:48px 19px 36px;
+       font-weight: 400;
+       font-size: 14px;
+       line-height: 17px;
     }
 }
