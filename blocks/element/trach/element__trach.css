@@ -1,0 +1,11 @@
+.element__trach {
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 103px;
+}
+
+.element__delete:hover {
+    opacity: 0.5;
+}
