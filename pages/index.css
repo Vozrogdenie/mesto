@@ -17,6 +17,7 @@
 @import url(../blocks/picture/__container/picture__container.css);
 @import url(../blocks/picture/__foto/picture__foto.css);
 @import url(../blocks/picture/__title/picture__title.css);
+@import url(..//blocks/picture/__close/picture__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__input/popup__input.css);

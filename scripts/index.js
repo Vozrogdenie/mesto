@@ -12,7 +12,7 @@ const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
 const picture = document.querySelector('.picture');
-const closeFullPhoto = picture.querySelector('.popup__close');
+const closeFullPhoto = picture.querySelector('.picture__close');
 
 
 let popupNameInput = document.querySelector('.popup__input_value_name');
