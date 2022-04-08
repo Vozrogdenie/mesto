@@ -38,6 +38,12 @@
 @import url(../blocks/element/trach/element__trach.css);
 
 
+@import url(../blocks/kartinka/__foto/kartinka__foto.css);
+@import url(../blocks/kartinka/__title/kartinka__title.css);
+@import url(../blocks/kartinka/kartinka.css);
+
+@import url(../blocks/kartinka/__container/kartinka__container.css);
+
 @import url(../blocks/root/root.css);
 
 @import url(../blocks/footer/__town/footer__town.css);

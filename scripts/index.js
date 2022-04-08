@@ -11,11 +11,7 @@ const popupNewPlaceForm = document.querySelector('.popup_new-place__form');
 const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
-const popupFullPhoto = document.querySelector('.popup_full-photo');
-
 const kartinka = document.querySelector('.kartinka');
-const kartinkaFoto = document.querySelector('.kartinka__foto');
-const kartinkaTitle = document.querySelector('.kartinka__title');
 
 
 let popupNameInput = document.querySelector('.popup__input_value_name');
@@ -113,11 +109,12 @@ function createNewCard(name, link) {
         event.target.closest(".element").remove();
     });
 
-    // cardImg.addEventListener("click", (event) => {
-    //     event.preventDefault();
-    //     popupFullPhoto.querySelector('.popup__img').src = cardImg.src;
-    //     onOpenPopup(popupFullPhoto);
-    // });
+    cardImg.addEventListener("click", (event) => {
+        event.preventDefault();
+        kartinka.querySelector('.kartinka__foto').src = cardImg.src;
+        kartinka.querySelector('.kartinka__title').textContent = name;
+        onOpenPopup(kartinka);
+    });
    
   
     return elementCard;

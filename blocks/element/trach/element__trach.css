@@ -4,8 +4,9 @@
     position: absolute;
     margin-top: 20px;
     margin-left: 103px;
+    cursor: pointer;
 }
 
-.element__delete:hover {
+.element__trach:hover {
     opacity: 0.5;
 }
