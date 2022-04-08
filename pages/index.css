@@ -18,10 +18,10 @@
 @import url(../blocks/profile/__titleicon/profile__titleicon.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 
-@import url(../blocks/kartinka/kartinka.css);
-
-@import url(../blocks/kartinka/__foto/kartinka__foto.css);
-@import url(../blocks/kartinka/__title/kartinka__title.css);
+@import url(../blocks/picture/picture.css); 
+@import url(../blocks/picture/__container/picture__container.css);
+@import url(../blocks/picture/__foto/picture__foto.css);
+@import url(../blocks/picture/__title/picture__title.css);
 
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__close/popup__close.css);
@@ -40,9 +40,6 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__heart/__active/element__active_heart.css);
 @import url(../blocks/element/trach/element__trach.css);
-
-
-@import url(../blocks/kartinka/__container/kartinka__container.css);
 
 @import url(../blocks/root/root.css);
 

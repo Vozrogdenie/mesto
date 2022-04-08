@@ -11,8 +11,8 @@ const popupNewPlaceForm = document.querySelector('.popup_new-place__form');
 const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
-const kartinka = document.querySelector('.kartinka');
-const closeFullPhoto = kartinka.querySelector('.popup__close');
+const picture = document.querySelector('.picture');
+const closeFullPhoto = picture.querySelector('.popup__close');
 
 
 let popupNameInput = document.querySelector('.popup__input_value_name');
@@ -92,7 +92,7 @@ popupNewPlaceForm.addEventListener('submit', event => {
 
 closeFullPhoto.addEventListener('click', (event) => {
     event.preventDefault();
-    onClosePopup(kartinka);
+    onClosePopup(picture);
 });
 
 initialCards.forEach((card) => {
@@ -117,9 +117,9 @@ function createNewCard(name, link) {
 
     cardImg.addEventListener("click", (event) => {
         event.preventDefault();
-        kartinka.querySelector('.kartinka__foto').src = cardImg.src;
-        kartinka.querySelector('.kartinka__title').textContent = name;
-        onOpenPopup(kartinka);
+        picture.querySelector('.picture__foto').src = cardImg.src;
+        picture.querySelector('.picture__title').textContent = name;
+        onOpenPopup(picture);
     });
     return elementCard;
 };
