@@ -11,9 +11,10 @@ const popupNewPlaceForm = document.querySelector('.popup__new-place-form');
 const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
-const picture = document.querySelector('.picture');
-const closeFullPhoto = picture.querySelector('.picture__close');
-
+const picture = document.querySelector('.picture-popup');
+// const closeFullPhoto = picture.querySelector('.popup__close');
+let pictureFoto = document.querySelector('.picture__foto');
+let pictureTitle = document.querySelector('.picture__title');
 
 let popupNameInput = document.querySelector('.popup__input_value_name');
 let popupProfessionInput = document.querySelector('.popup__input_value_profession');
@@ -51,48 +52,49 @@ const initialCards = [
 ];
   
 
-function onOpenPopup(popup) {
+function OpenPopup(popup) {
     popup.classList.add('popup_opened');
 };
-function onClosePopup(popup) {
+function ClosePopup(popup) {
     popup.classList.remove('popup_opened');  
 };
 
 openPopupEdit.addEventListener('click', event => { 
-    event.preventDefault();
+    // event.preventDefault();
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
-    onOpenPopup(popupEdit);
+    OpenPopup(popupEdit);
 });
 closePopupEdit.addEventListener('click', event => {
     event.preventDefault();
-    onClosePopup(popupEdit);
+    ClosePopup(popupEdit);
 });
 popupEditForm.addEventListener('submit', event => {
     event.preventDefault(); 
     nameTitle.textContent = popupNameInput.value;
     professionSubtitle.textContent = popupProfessionInput.value;                                           
-    onClosePopup(popupEdit);
+    ClosePopup(popupEdit);
 });
 
 openPopupNewPlace.addEventListener('click', event => {
     event.preventDefault();
-    onOpenPopup(popupNewPlace);
+    OpenPopup(popupNewPlace);
 });
 closePopupNewPlace.addEventListener('click', event => {
     event.preventDefault();
-    onClosePopup(popupNewPlace);
+    ClosePopup(popupNewPlace);
 });
 popupNewPlaceForm.addEventListener('submit', event => {
     event.preventDefault();
-    const newCard = createNewCard(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value)                             
+    const newCard = createNewCard(popupNewPlaceTitleInput.value='', popupNewPlaceUrlInput.value='')                             
     addNewCard(newCard);
-    onClosePopup(popupNewPlace);
+    ClosePopup(popupNewPlace);
+
 });
 
-closeFullPhoto.addEventListener('click', (event) => {
+closePopupEdit.addEventListener('click', (event) => {
     event.preventDefault();
-    onClosePopup(picture);
+    ClosePopup(picture);
 });
 
 initialCards.forEach((card) => {
@@ -119,7 +121,7 @@ function createNewCard(name, link) {
         event.preventDefault();
         picture.querySelector('.picture__foto').src = cardImg.src;
         picture.querySelector('.picture__title').textContent = name;
-        onOpenPopup(picture);
+        OpenPopup(picture);
     });
     return elementCard;
 };
