@@ -3,9 +3,9 @@
     background-color: #00000080;
     opacity: 0;
     visibility: hidden;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    transition: 1s; 
+    transition: 1s;
     position: fixed;
     top: 0;
     left: 0;
