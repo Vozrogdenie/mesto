@@ -12,6 +12,7 @@ const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
 const kartinka = document.querySelector('.kartinka');
+const closeFullPhoto = kartinka.querySelector('.popup__close');
 
 
 let popupNameInput = document.querySelector('.popup__input_value_name');
@@ -89,6 +90,11 @@ popupNewPlaceForm.addEventListener('submit', event => {
     onClosePopup(popupNewPlace);
 });
 
+closeFullPhoto.addEventListener('click', (event) => {
+    event.preventDefault();
+    onClosePopup(kartinka);
+});
+
 initialCards.forEach((card) => {
     const newCard = createNewCard(card.name, card.link);
     addNewCard(newCard);
@@ -115,10 +121,9 @@ function createNewCard(name, link) {
         kartinka.querySelector('.kartinka__title').textContent = name;
         onOpenPopup(kartinka);
     });
-   
-  
     return elementCard;
 };
+
 function addNewCard(element) {
     sectionElements.prepend(element);
 };
