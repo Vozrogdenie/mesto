@@ -11,18 +11,18 @@ const popupNewPlaceForm = document.querySelector('.popup__new-place-form');
 const elementTemplate = document.querySelector('#element-template').content;
 const sectionElements = document.querySelector('.elements');
 
-const picture = document.querySelector('.picture-popup');
-// const closeFullPhoto = picture.querySelector('.popup__close');
-let pictureFoto = document.querySelector('.picture__foto');
-let pictureTitle = document.querySelector('.picture__title');
+const picture = document.querySelector('.popup_type_picture');
+const pictureFoto = picture.querySelector('.popup__foto')
+const closeFullPhoto = picture.querySelector('.popup__close');
+const pictureTitle = picture.querySelector('.popup__title_type_picture');
 
-let popupNameInput = document.querySelector('.popup__input_value_name');
-let popupProfessionInput = document.querySelector('.popup__input_value_profession');
-let popupNewPlaceTitleInput = document.querySelector('.popup__input_value_title');
-let popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
+const popupNameInput = document.querySelector('.popup__input_value_name');
+const popupProfessionInput = document.querySelector('.popup__input_value_profession');
+const popupNewPlaceTitleInput = document.querySelector('.popup__input_value_title');
+const popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
 
-let nameTitle = document.querySelector('.profile__title');
-let professionSubtitle = document.querySelector('.profile__subtitle');
+const nameTitle = document.querySelector('.profile__title');
+const professionSubtitle = document.querySelector('.profile__subtitle');
 
 const initialCards = [
     {
@@ -60,7 +60,6 @@ function ClosePopup(popup) {
 };
 
 openPopupEdit.addEventListener('click', event => { 
-    // event.preventDefault();
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
     OpenPopup(popupEdit);
@@ -86,13 +85,18 @@ closePopupNewPlace.addEventListener('click', event => {
 });
 popupNewPlaceForm.addEventListener('submit', event => {
     event.preventDefault();
-    const newCard = createNewCard(popupNewPlaceTitleInput.value='', popupNewPlaceUrlInput.value='')                             
+    const newCard = createNewCard(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value)                             
     addNewCard(newCard);
+    popupNewPlaceTitleInput.value = "";
+    popupNewPlaceUrlInput.value = "";
     ClosePopup(popupNewPlace);
-
 });
 
 closePopupEdit.addEventListener('click', (event) => {
+    event.preventDefault();
+    ClosePopup(picture);
+});
+closeFullPhoto.addEventListener('click', (event) => {
     event.preventDefault();
     ClosePopup(picture);
 });
@@ -119,8 +123,9 @@ function createNewCard(name, link) {
 
     cardImg.addEventListener("click", (event) => {
         event.preventDefault();
-        picture.querySelector('.picture__foto').src = cardImg.src;
-        picture.querySelector('.picture__title').textContent = name;
+        pictureFoto.src = cardImg.src;
+        pictureFoto.alt = name;
+        pictureTitle.textContent = name;
         OpenPopup(picture);
     });
     return elementCard;
