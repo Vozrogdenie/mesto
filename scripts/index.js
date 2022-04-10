@@ -52,53 +52,48 @@ const initialCards = [
 ];
   
 
-function OpenPopup(popup) {
+function оpenPopup(popup) {
     popup.classList.add('popup_opened');
 };
-function ClosePopup(popup) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');  
 };
 
 openPopupEdit.addEventListener('click', event => { 
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
-    OpenPopup(popupEdit);
+    оpenPopup(popupEdit);
 });
 closePopupEdit.addEventListener('click', event => {
-    event.preventDefault();
-    ClosePopup(popupEdit);
+    closePopup(popupEdit);
 });
 popupEditForm.addEventListener('submit', event => {
     event.preventDefault(); 
     nameTitle.textContent = popupNameInput.value;
     professionSubtitle.textContent = popupProfessionInput.value;                                           
-    ClosePopup(popupEdit);
+    closePopup(popupEdit);
 });
 
 openPopupNewPlace.addEventListener('click', event => {
-    event.preventDefault();
-    OpenPopup(popupNewPlace);
+    оpenPopup(popupNewPlace);
 });
 closePopupNewPlace.addEventListener('click', event => {
-    event.preventDefault();
-    ClosePopup(popupNewPlace);
+    closePopup(popupNewPlace);
 });
 popupNewPlaceForm.addEventListener('submit', event => {
     event.preventDefault();
     const newCard = createNewCard(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value)                             
     addNewCard(newCard);
-    popupNewPlaceTitleInput.value = "";
-    popupNewPlaceUrlInput.value = "";
-    ClosePopup(popupNewPlace);
+    popupNewPlaceTitleInput.value='';
+    popupNewPlaceUrlInput.value='';
+    closePopup(popupNewPlace);
 });
 
 closePopupEdit.addEventListener('click', (event) => {
-    event.preventDefault();
-    ClosePopup(picture);
+    closePopup(picture);
 });
 closeFullPhoto.addEventListener('click', (event) => {
-    event.preventDefault();
-    ClosePopup(picture);
+    closePopup(picture);
 });
 
 initialCards.forEach((card) => {
@@ -122,11 +117,10 @@ function createNewCard(name, link) {
     });
 
     cardImg.addEventListener("click", (event) => {
-        event.preventDefault();
-        pictureFoto.src = cardImg.src;
+        pictureFoto.src = link;
         pictureFoto.alt = name;
         pictureTitle.textContent = name;
-        OpenPopup(picture);
+        оpenPopup(picture);
     });
     return elementCard;
 };
