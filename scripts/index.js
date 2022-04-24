@@ -130,4 +130,46 @@ function addNewCard(element) {
 };
 
 
+
+const formElement = document.querySelector('.popup__edit-form');
+const formInput = formElement.querySelector('.popup__input');
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  // Находим элемент ошибки внутри самой функции
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  // Остальной код такой же
+  inputElement.classList.add('form__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('form__input-error_active');
+};
+
+const hideInputError = (formElement, inputElement) => {
+  // Находим элемент ошибки
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  // Остальной код такой же
+  inputElement.classList.remove('form__input_type_error');
+  errorElement.classList.remove('form__input-error_active');
+  errorElement.textContent = '';
+}
+const isValid = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    // showInputError теперь получает параметром форму, в которой
+    // находится проверяемое поле, и само это поле
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    // hideInputError теперь получает параметром форму, в которой
+    // находится проверяемое поле, и само это поле
+    hideInputError(formElement, inputElement);
+  }
+}; 
+ formElement.addEventListener('submit', function (evt) {
+  // Отменим стандартное поведение по сабмиту
+  evt.preventDefault();
+});
+
+// Вызовем функцию isValid на каждый ввод символа
+formInput.addEventListener('input', isValid); 
+
+const formError = formElement.querySelector(`.${formInput.id}-error`); 
+
   
