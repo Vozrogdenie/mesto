@@ -58,7 +58,7 @@ function toggleButtonState(inputList, buttonElement, config) {
 //const popupContainer = document.querySelector('.popup__container')
 
 function closeOverlay(event){
-    if (! event.target.querySelector('.popup__container')){
+    if (event.target.querySelector('.popup__container')){
         closePopup(event.target.closest('.popup));
        console.log(event.target.className);                                                               
     }
