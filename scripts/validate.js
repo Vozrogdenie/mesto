@@ -59,7 +59,7 @@ function toggleButtonState(inputList, buttonElement, config) {
 
 function closeOverlay(event){
     if (event.target.querySelector('.popup__container')){
-        closePopup(event.target.closest('.popup));
+        closePopup(event.target.closest('.popup'));
        console.log(event.target.className);                                                               
     }
 }
