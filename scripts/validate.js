@@ -68,7 +68,7 @@ function closeOverlay(event){
        const popupOpened = document.querySelector('.popup_opened')
        closePopup(popupOpened)
    }
-      document.removeEventListener('.keydown', escapePopup);
+      document.removeEventListener('keydown', escapePopup);
   }
                    
 enableValidation({
