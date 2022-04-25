@@ -54,9 +54,13 @@ const initialCards = [
 
 function оpenPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown' , escapePopup);
+    popup.addEventListener('click', closeOverlay);
 };
 function closePopup(popup) {
-    popup.classList.remove('popup_opened');  
+    popup.classList.remove('popup_opened'); 
+    document.removeEventListener('keydown' , escapePopup);
+    popup.removeEventListener('click', closeOverlay);
 };
 
 openPopupEdit.addEventListener('click', event => { 
