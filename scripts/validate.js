@@ -55,7 +55,14 @@ function toggleButtonState(inputList, buttonElement, config) {
         buttonElement.classList.remove(config.inactiveButtonClass);
     };
 };
+//const popupContainer = document.querySelector('.popup__container')
 
+function closeOverlay(event){
+    if (! event.target.querySelector('.popup__container')){
+        closePopup(event.target.closest('.popup))
+                                        
+    }
+}
 enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -65,3 +72,4 @@ enableValidation({
     errorClass: 'popup__error_visible',
     inputErrorActive: 'popup__input-error_active'
 });
+
