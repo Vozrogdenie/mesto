@@ -55,21 +55,7 @@ function toggleButtonState(inputList, buttonElement, config) {
         buttonElement.classList.remove(config.inactiveButtonClass);
     };
 };
-//const popupContainer = document.querySelector('.popup__container')
 
-function closeOverlay(event){
-    if (event.target.querySelector('.popup__container')){
-        closePopup(event.target.closest('.popup'));
-       console.log(event.target.className);                                                               
-    }
-}
-  function escapePopup(event){
-   if (evt.code =='Escape') {
-       const popupOpened = document.querySelector('.popup_opened')
-       closePopup(popupOpened)
-   }
-      document.removeEventListener('keydown', escapePopup);
-  }
                    
 enableValidation({
     formSelector: '.popup__form',
