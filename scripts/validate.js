@@ -60,9 +60,18 @@ function toggleButtonState(inputList, buttonElement, config) {
 function closeOverlay(event){
     if (! event.target.querySelector('.popup__container')){
         closePopup(event.target.closest('.popup))
-                                        
+        function closePopup(popup) 
+                               
     }
 }
+  function escapePopup(event){
+   if (evt.code =='Escape') {
+       const popupOpened = document.querySelector('.popup_opened')
+       closePopup(popupOpened)
+   }
+      document.removeEventListener('.keydown', escapePopup);
+  }
+                   
 enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
