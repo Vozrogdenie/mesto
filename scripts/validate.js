@@ -1,3 +1,13 @@
+const elemConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit-button',
+    inactiveButtonClass: 'popup__submit-button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible',
+    inputErrorActive: 'popup__input-error_active'
+};
+
 const showInputError = (formElement, inputElement, errorMessage, config) => {
     const errorElement = formElement.querySelector(`.popup__input-${inputElement.name}-error`);
     inputElement.classList.add(config.inputErrorClass);
@@ -51,19 +61,12 @@ function hasInvalidInput (inputList){
 function toggleButtonState(inputList, buttonElement, config) {
     if(hasInvalidInput(inputList)){
         buttonElement.classList.add(config.inactiveButtonClass);
+        buttonElement.disabled = true;
     } else {
         buttonElement.classList.remove(config.inactiveButtonClass);
+        buttonElement.disabled = false;
     };
 };
-
                    
-enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__submit-button',
-    inactiveButtonClass: 'popup__submit-button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible',
-    inputErrorActive: 'popup__input-error_active'
-});
+enableValidation(elemConfig);
 
