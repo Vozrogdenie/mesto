@@ -62,7 +62,6 @@ function closePopup(popup) {
     document.removeEventListener('keydown' , escapePopup);
     popup.removeEventListener('click', closeOverlay);
 };
-//const popupContainer = document.querySelector('.popup__container')
 
 function closeOverlay(event){
     if (event.target.querySelector('.popup__container')){
@@ -70,13 +69,13 @@ function closeOverlay(event){
        console.log(event.target.className);                                                               
     }
 }
-  function escapePopup(event){
-   if (evt.code =='Escape') {
+function escapePopup(event){
+   if (event.code =='Escape') {
        const popupOpened = document.querySelector('.popup_opened')
        closePopup(popupOpened)
-   }
-      document.removeEventListener('keydown', escapePopup);
-  }
+    }
+    document.removeEventListener('keydown', escapePopup);
+}
 openPopupEdit.addEventListener('click', event => { 
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
