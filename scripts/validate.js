@@ -58,13 +58,21 @@ function hasInvalidInput (inputList){
     });
 }; 
 
+function disableSubmitButton(buttonElement) {
+    buttonElement.classList.add(elemConfig.inactiveButtonClass);
+    buttonElement.disabled = true;
+};
+
+function enableSubmitButton(buttonElement) {
+    buttonElement.classList.remove(elemConfig.inactiveButtonClass);
+    buttonElement.disabled = false;
+};
+
 function toggleButtonState(inputList, buttonElement, config) {
     if(hasInvalidInput(inputList)){
-        buttonElement.classList.add(config.inactiveButtonClass);
-        buttonElement.disabled = true;
+        disableSubmitButton(buttonElement);
     } else {
-        buttonElement.classList.remove(config.inactiveButtonClass);
-        buttonElement.disabled = false;
+        enableSubmitButton(buttonElement);
     };
 };
                    
