@@ -1,3 +1,6 @@
+//export default cardImg;
+import { Card } from "./Card.js";
+
 const popupEdit = document.querySelector('.popup_edit');
 const buttonOpenPopupEdit = document.querySelector('.profile__button');
 const buttonClosePopupEdit = popupEdit.querySelector('.popup__close');
@@ -95,11 +98,12 @@ initialCards.forEach((card) => {
 });
 
 function createNewCard(name, link) {
-    const elementCard = elementTemplate.cloneNode(true);
-    elementCard.querySelector(".element__text").textContent = name;
-    const cardImg = elementCard.querySelector(".element__item");
-    cardImg.src = link;
-    cardImg.alt = name;
+   // const elementCard = elementTemplate.cloneNode(true);
+  // elementCard.querySelector(".element__text").textContent = name;
+    //const cardImg = elementCard.querySelector(".element__item");
+    //cardImg.src = link;
+   // cardImg.alt = name;
+   const elementCard = new Card(name, link, elementTemplate)
 
     elementCard.querySelector(".element__heart").addEventListener("click", (event) => {
       event.target.classList.toggle("element__active_heart");
@@ -109,7 +113,7 @@ function createNewCard(name, link) {
         event.target.closest(".element").remove();
     });
 
-    cardImg.addEventListener("click", (event) => {
+     cardImg.addEventListener("click", (event) => {
         pictureFoto.src = link;
         pictureFoto.alt = name;
         pictureTitle.textContent = name;
