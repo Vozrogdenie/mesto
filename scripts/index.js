@@ -1,5 +1,5 @@
 //export default cardImg;
-import { Card } from "./Card.js";
+//import { Card } from "./Card.js";
 
 const popupEdit = document.querySelector('.popup_edit');
 const buttonOpenPopupEdit = document.querySelector('.profile__button');
