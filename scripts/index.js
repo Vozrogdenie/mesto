@@ -1,5 +1,5 @@
-//export default cardImg;
-//import { Card } from "./Card.js";
+
+import { Card } from "./Card.js";
 
 const popupEdit = document.querySelector('.popup_edit');
 const buttonOpenPopupEdit = document.querySelector('.profile__button');
@@ -27,7 +27,7 @@ const popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
 const nameTitle = document.querySelector('.profile__title');
 const professionSubtitle = document.querySelector('.profile__subtitle');
 
-function оpenPopup(popup) {
+export function оpenPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', escapePopup);
     popup.addEventListener('click', closeOverlay);
@@ -80,7 +80,7 @@ buttonClosePopupNewPlace.addEventListener('click', event => {
 });
 popupNewPlaceForm.addEventListener('submit', event => {
     event.preventDefault();
-    const newCard = createNewCard(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value)                             
+    const newCard = new Card(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value, '#element-template').generateCard();                          
     addNewCard(newCard);
     closePopup(popupNewPlace);
 });
@@ -92,36 +92,11 @@ closeFullPhoto.addEventListener('click', (event) => {
     closePopup(picture);
 });
 
-initialCards.forEach((card) => {
-    const newCard = createNewCard(card.name, card.link);
-    addNewCard(newCard);
-});
-
-function createNewCard(name, link) {
-   // const elementCard = elementTemplate.cloneNode(true);
-  // elementCard.querySelector(".element__text").textContent = name;
-    //const cardImg = elementCard.querySelector(".element__item");
-    //cardImg.src = link;
-   // cardImg.alt = name;
-   const elementCard = new Card(name, link, elementTemplate)
-
-    elementCard.querySelector(".element__heart").addEventListener("click", (event) => {
-      event.target.classList.toggle("element__active_heart");
-    });
-
-    elementCard.querySelector(".element__trach").addEventListener("click", (event) => {
-        event.target.closest(".element").remove();
-    });
-
-     cardImg.addEventListener("click", (event) => {
-        pictureFoto.src = link;
-        pictureFoto.alt = name;
-        pictureTitle.textContent = name;
-        оpenPopup(picture);
-    });
-    return elementCard;
-};
-
 function addNewCard(element) {
     sectionElements.prepend(element);
 };
+
+initialCards.forEach((card) => {
+    const newCard = new Card(card.name, card.link, '#element-template').generateCard();
+    addNewCard(newCard);
+});
