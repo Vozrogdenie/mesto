@@ -1,6 +1,16 @@
 
 import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
+const elemConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit-button',
+    inactiveButtonClass: 'popup__submit-button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible',
+    inputErrorActive: 'popup__input-error_active'
+};
 const popupEdit = document.querySelector('.popup_edit');
 const buttonOpenPopupEdit = document.querySelector('.profile__button');
 const buttonClosePopupEdit = popupEdit.querySelector('.popup__close');
@@ -26,6 +36,11 @@ const popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
 
 const nameTitle = document.querySelector('.profile__title');
 const professionSubtitle = document.querySelector('.profile__subtitle');
+
+ const Edit = new FormValidator(elemConfig);
+ const Validator = new FormValidator(elemConfig);
+ Edit._enableValidation();
+ Validator._enableValidation();
 
 export function оpenPopup(popup) {
     popup.classList.add('popup_opened');
