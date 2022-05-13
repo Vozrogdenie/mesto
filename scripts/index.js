@@ -37,10 +37,37 @@ const popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
 const nameTitle = document.querySelector('.profile__title');
 const professionSubtitle = document.querySelector('.profile__subtitle');
 
- const Edit = new FormValidator(elemConfig);
- const Validator = new FormValidator(elemConfig);
- Edit._enableValidation();
- Validator._enableValidation();
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];  
+
+const EditFormValidation = new FormValidator(elemConfig, popupEditForm);
+EditFormValidation.enableValidation();
+const NewPlaceFormValidation = new FormValidator(elemConfig, popupNewPlaceForm);
+NewPlaceFormValidation.enableValidation();
 
 export function оpenPopup(popup) {
     popup.classList.add('popup_opened');
@@ -69,8 +96,6 @@ function escapePopup(event){
 buttonOpenPopupEdit.addEventListener('click', event => { 
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
-    hideInputError(popupEditForm, popupNameInput, elemConfig);
-    hideInputError(popupEditForm, popupProfessionInput, elemConfig);
     оpenPopup(popupEdit);
 });
 buttonClosePopupEdit.addEventListener('click', event => {
@@ -86,9 +111,6 @@ popupEditForm.addEventListener('submit', event => {
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     оpenPopup(popupNewPlace);
     popupNewPlaceForm.reset();
-    hideInputError(popupNewPlaceForm, popupNewPlaceTitleInput, elemConfig);
-    hideInputError(popupNewPlaceForm, popupNewPlaceUrlInput, elemConfig);  
-    disableSubmitButton(popupNewPlace.querySelector('.popup__submit-button'));
 });
 buttonClosePopupNewPlace.addEventListener('click', event => {
     closePopup(popupNewPlace);
