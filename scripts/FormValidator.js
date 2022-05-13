@@ -6,7 +6,7 @@ export class FormValidator {
         this._button = this._form.querySelector(this._elemConfig.submitButtonSelector)
     };
 
-     _showInputError = (inputElement, errorMessage) => {
+    _showInputError = (inputElement, errorMessage) => {
         const errorElement = this._form.querySelector(`.popup__input-${inputElement.name}-error`);
         inputElement.classList.add(this._elemConfig.inputErrorClass);
         errorElement.textContent = errorMessage;
