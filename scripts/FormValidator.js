@@ -1,11 +1,11 @@
 export class FormValidator {
     constructor(elemConfig, form){
-        this._elemConfig =elemConfig;
+        this._elemConfig = elemConfig;
         this._form = form;
         this._inputs = Array.from(this._form.querySelectorAll(this._elemConfig.inputSelector));
         this._button = this._form.querySelector(this._elemConfig.submitButtonSelector)
-        
-    }
+    };
+
      _showInputError = (inputElement, errorMessage) => {
         const errorElement = this._form.querySelector(`.popup__input-${inputElement.name}-error`);
         inputElement.classList.add(this._elemConfig.inputErrorClass);
@@ -25,7 +25,7 @@ export class FormValidator {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
            this._hideInputError(inputElement);
-        }
+        };
     };
       
     _setEventListeners = () => {
@@ -39,10 +39,10 @@ export class FormValidator {
     };
       
     enableValidation = () => {
-            this._form.addEventListener('submit', function(evt){
-                evt.preventDefault();
-            })
-            this._setEventListeners(); 
+        this._form.addEventListener('submit', function(evt){
+            evt.preventDefault();
+        });
+        this._setEventListeners(); 
     };
     
     _hasInvalidInput (){
@@ -59,7 +59,5 @@ export class FormValidator {
             this._button.classList.remove(this._elemConfig.submitButtonSelector);
             this._button.removeAttribute("disabled");
         };
-    };
-    
-    
-}
+    }; 
+};

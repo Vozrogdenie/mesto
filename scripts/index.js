@@ -1,4 +1,3 @@
-
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -84,15 +83,15 @@ function closeOverlay(event){
     if (event.target === event.currentTarget){
         closePopup(event.target.closest('.popup'));
         const formOpened = event.target.querySelector('form');                                                            
-    }
-}
+    };
+};
 function escapePopup(event){
     if (event.code =='Escape') {
         const popupOpened = document.querySelector('.popup_opened');
         const formOpened = popupOpened.querySelector('form');
-        closePopup(popupOpened)
-    }
-}
+        closePopup(popupOpened);
+    };
+};
 buttonOpenPopupEdit.addEventListener('click', event => { 
     popupNameInput.value =  nameTitle.textContent;
     popupProfessionInput.value = professionSubtitle.textContent;
