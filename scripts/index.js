@@ -1,5 +1,6 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { initialCards } from "./initialCards.js";
 
 const elemConfig = {
     formSelector: '.popup__form',
@@ -34,34 +35,7 @@ const popupNewPlaceTitleInput = document.querySelector('.popup__input_value_titl
 const popupNewPlaceUrlInput = document.querySelector('.popup__input_value_url');
 
 const nameTitle = document.querySelector('.profile__title');
-const professionSubtitle = document.querySelector('.profile__subtitle');
-
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];  
+const professionSubtitle = document.querySelector('.profile__subtitle'); 
 
 const EditFormValidation = new FormValidator(elemConfig, popupEditForm);
 EditFormValidation.enableValidation();
@@ -88,7 +62,6 @@ function closeOverlay(event){
 function escapePopup(event){
     if (event.code =='Escape') {
         const popupOpened = document.querySelector('.popup_opened');
-        const formOpened = popupOpened.querySelector('form');
         closePopup(popupOpened);
     };
 };
@@ -116,7 +89,7 @@ buttonClosePopupNewPlace.addEventListener('click', event => {
 });
 popupNewPlaceForm.addEventListener('submit', event => {
     event.preventDefault();
-    const newCard = new Card(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value, '#element-template').generateCard();                          
+    const newCard = createCard(popupNewPlaceTitleInput.value, popupNewPlaceUrlInput.value);                          
     addNewCard(newCard);
     closePopup(popupNewPlace);
 });
@@ -132,7 +105,11 @@ function addNewCard(element) {
     sectionElements.prepend(element);
 };
 
+function createCard(name, link) {
+    return new Card(name, link, '#element-template').generateCard();
+};
+
 initialCards.forEach((card) => {
-    const newCard = new Card(card.name, card.link, '#element-template').generateCard();
+    const newCard = createCard(card.name, card.link);
     addNewCard(newCard);
 });
