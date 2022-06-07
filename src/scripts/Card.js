@@ -1,12 +1,9 @@
-import { оpenPopup } from './index.js';
-
-const picture = document.querySelector('.popup_type_picture');
-
 export class Card {
-    constructor(name, link, cardSelector){
-    this._name = name;
-    this._link = link;
-    this._cardSelector = cardSelector;
+    constructor(name, link, cardSelector, handleCardClick){
+        this._name = name;
+        this._link = link;
+        this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     };
 
     _getTemplate() {
@@ -32,19 +29,12 @@ export class Card {
           this._handleTrachPopup();
         });
         this._element.querySelector('.element__item').addEventListener('click', () => {
-          this._handleOpenPopup();
+          this._handleCardClick(this._name, this._link);
         });
     };
 
     _handleLikeClick(){
         this._element.querySelector('.element__heart').classList.toggle('element__active_heart')
-    };
-    
-    _handleOpenPopup(){
-        picture.querySelector('.popup__foto').src = this._link;
-        picture.querySelector('.popup__foto').alt = this._name;
-        picture.querySelector('.popup__title_type_picture').textContent = this._name;
-        оpenPopup(picture);
     };
 
     _handleTrachPopup(){

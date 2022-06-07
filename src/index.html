@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="root">
     <header class="header"> 
-        <img class="header__logo" src="images/Mesto.png" alt="Логотип">
+        <img class="header__logo" src="<%=require('./images/Mesto.png')%>" alt="Логотип">
     </header>
     <main class="content">
         <section class="profile">
             <div class="profile__box">
-                    <img src="images/image.jpg" class="profile__avatar" alt="Аватар">
+                    <img src="<%=require('./images/image.jpg')%>" class="profile__avatar" alt="Аватар">
                 <div class="profile__info">
                     <div class="profile__titleicon">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button class="button profile__button" type="button" aria-label="Кнопка редактирования">
-                            <img class="profile__icon " src="images/Vectorredactirovanie.svg" alt="кнопка редактирования">
+                            <img class="profile__icon " src="<%=require('./images/Vectorredactirovanie.svg')%>" alt="кнопка редактирования">
                         </button>
                     </div>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
                 <button type="button" class="button" aria-label="кнопка добавления">
-                    <img class="add-button" src="images/Vectorplusknopka.svg" alt="Кнопка добавления">
+                    <img class="add-button" src="<%=require('./images/Vectorplusknopka.svg')%>" alt="Кнопка добавления">
                 </button>
             </div>
         </section>
         <section class="popup popup_edit">
             <div class="popup__container">
                 <button class="button" type="button">
-                    <img class="popup__close" src="images/Close.png" alt="Кнопка закрытия">
+                    <img class="popup__close" src="<%=require('./images/Close.png')%>" alt="Кнопка закрытия">
                 </button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                     <form name="profile-form" class="popup__edit-form popup__form" novalidate>
@@ -46,7 +45,7 @@
         <section class="popup popup_new-place">
             <div class="popup__container">
                 <button class="button" type="button">
-                    <img class="popup__close" src="images/Close.png" alt="Кнопка закрытия">
+                    <img class="popup__close" src="<%=require('./images/Close.png')%>" alt="Кнопка закрытия">
                 </button>
                 <h2 class="popup__title">Новое место</h2>
                     <form name="card-form" class="popup__new-place-form popup__form" novalidate>
@@ -62,7 +61,7 @@
             <div class="popup popup_type_picture">
                 <div class="popup__container popup__container_type_picture">
                     <button class="button" type="button">
-                        <img class="popup__close" src="images/Close.png" alt="Кнопка закрытия">
+                        <img class="popup__close" src="<%=require('./images/Close.png')%>" alt="Кнопка закрытия">
                     </button>
                     <img class="popup__foto" src="#" alt=" ">
                     <p class="popup__title popup__title_type_picture"></p>
@@ -71,13 +70,13 @@
         <template id="element-template">
             <div class="element">
                 <button class="button" type="button" aria-label="Мусорка" >
-                    <img class="element__trach" src="images/Trashtrach.svg" alt="Удалить">
+                    <img class="element__trach" src="<%=require('./images/Trashtrach.svg')%>" alt="Удалить">
                 </button>
                 <img class="element__item" src="#" alt="">    
                 <div class="element__info">
                     <h2 class="element__text"></h2>
                     <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="images/Vectorheartnew.svg" alt="кнопка сердешки">
+                        <img class="element__heart" src="<%=require('./images/Vectorheartnew.svg')%>" alt="кнопка сердешки">
                     </button>
                 </div>
             </div>
@@ -86,10 +85,5 @@
     <footer class="footer">
         <p class="footer__town">&copy;2022 Mesto Russia</p>
     </footer>
-    
-    <script type="module" src="scripts/index.js"></script>
-    <script type="module" src="scripts/initialCards.js"></script>
-    <script type="module" src="scripts/Card.js"></script>
-    <script type="module" src="scripts/FormValidator.js"></script> 
 </body>
 </html>
