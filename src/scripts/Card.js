@@ -8,8 +8,8 @@ export class Card {
 
     _getTemplate() {
         const cardElement = document
-        .querySelector(this._cardSelector).content
-        .querySelector('.element').cloneNode(true);
+            .querySelector(this._cardSelector).content
+            .querySelector('.element').cloneNode(true);
         return cardElement;
     };
 
@@ -23,13 +23,13 @@ export class Card {
   
     _setEventListeners(){
         this._element.querySelector('.element__heart').addEventListener('click', () =>{
-          this._handleLikeClick();
+            this._handleLikeClick();
         });
         this._element.querySelector('.element__trach').addEventListener('click', () => {
-          this._handleTrachPopup();
+            this._handleTrachPopup();
         });
         this._element.querySelector('.element__item').addEventListener('click', () => {
-          this._handleCardClick(this._name, this._link);
+            this._handleCardClick(this._name, this._link);
         });
     };
 

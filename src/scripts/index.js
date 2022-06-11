@@ -2,27 +2,29 @@ import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { initialCards } from "./initialCards.js";
 import '../pages/index.css';
+import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { Section } from "./Section.js";
 
 import {
     elemConfig,
     buttonOpenPopupEdit,
-    buttonClosePopupEdit,
     popupEditForm,
     buttonOpenPopupNewPlace,
-    buttonClosePopupNewPlace,
     popupNewPlaceForm,
-    sectionElements,
-    picture,
-    closeFullPhoto,
     popupNameInput,
     popupProfessionInput,
-    popupNewPlaceTitleInput,
-    popupNewPlaceUrlInput,
     nameTitle,
     professionSubtitle
 } from '../const';
-import { PopupWithImage } from "./PopupWithImage.js";
-import { PopupWithForm } from "./PopupWithForm.js";
+
+
+const section = new Section(initialCards, (item) => {
+    return new Card(item.name, item.link, '#element-template', (name, link) => {
+        popupPicture.open(name, link);
+    }).generateCard();
+}, '.elements');
+section.renderItems();
 
 const popupPicture = new PopupWithImage('.popup_type_picture');
 const popupEdit = new PopupWithForm('.popup_edit', (inputs) => {
@@ -32,8 +34,10 @@ const popupEdit = new PopupWithForm('.popup_edit', (inputs) => {
 popupEdit.setEventListeners();
 
 const popupNewPlace = new PopupWithForm('.popup_new-place', (inputs) => {
-    const card = createCard(inputs.name, inputs.link);
-    addNewCard(card);
+    const card = new Card(inputs.title, inputs.url, '#element-template', (name, link) => {
+        popupPicture.open(name, link);
+    }).generateCard();
+    section.addItem(card);
 });
 popupNewPlace.setEventListeners();
 
@@ -50,19 +54,4 @@ buttonOpenPopupEdit.addEventListener('click', event => {
 });
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     popupNewPlace.open();
-});
-
-function addNewCard(element) {
-    sectionElements.prepend(element);
-};
-
-function createCard(name, link) {
-    return new Card(name, link, '#element-template', (name, link) => {
-        popupPicture.open(name, link);
-    }).generateCard();
-};
-
-initialCards.forEach((card) => {
-    const newCard = createCard(card.name, card.link);
-    addNewCard(newCard);
 });
