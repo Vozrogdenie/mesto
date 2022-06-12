@@ -13,8 +13,6 @@ export class Popup {
     close() {
         this._popupSelector.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._escapePopup);
-        document.removeEventListener('click', this._closeOverlay);
-        this._popupSelector.querySelector('button').removeEventListener('click', this._closeButton);
     };
   
     _escapePopup = (event) => {

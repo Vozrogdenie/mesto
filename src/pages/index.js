@@ -1,10 +1,9 @@
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
-import { initialCards } from "./initialCards.js";
+import { Card } from "../scripts/Card.js";
+import { FormValidator } from "../scripts/FormValidator.js";
 import '../pages/index.css';
-import { PopupWithImage } from "./PopupWithImage.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { Section } from "./Section.js";
+import { PopupWithImage } from "../scripts/PopupWithImage.js";
+import { PopupWithForm } from "../scripts/PopupWithForm.js";
+import { Section } from "../scripts/Section.js";
 
 import {
     elemConfig,
@@ -15,28 +14,25 @@ import {
     popupNameInput,
     popupProfessionInput,
     nameTitle,
-    professionSubtitle
-} from '../const';
+    professionSubtitle,
+    initialCards
+} from '../utils/constants';
+import { UserInfo } from "../scripts/UserInfo.js";
 
 
-const section = new Section(initialCards, (item) => {
-    return new Card(item.name, item.link, '#element-template', (name, link) => {
-        popupPicture.open(name, link);
-    }).generateCard();
-}, '.elements');
+const userInfo = new UserInfo();
+
+const section = new Section(initialCards, generateCard, '.elements');
 section.renderItems();
 
 const popupPicture = new PopupWithImage('.popup_type_picture');
 const popupEdit = new PopupWithForm('.popup_edit', (inputs) => {
-    nameTitle.textContent = inputs.name;
-    professionSubtitle.textContent = inputs.profession;
+    userInfo.setUserInfo(inputs.name, inputs.profession);
 });
 popupEdit.setEventListeners();
 
 const popupNewPlace = new PopupWithForm('.popup_new-place', (inputs) => {
-    const card = new Card(inputs.title, inputs.url, '#element-template', (name, link) => {
-        popupPicture.open(name, link);
-    }).generateCard();
+    const card = generateCard({ name: inputs.title, link: inputs.url });
     section.addItem(card);
 });
 popupNewPlace.setEventListeners();
@@ -47,11 +43,16 @@ const NewPlaceFormValidation = new FormValidator(elemConfig, popupNewPlaceForm);
 NewPlaceFormValidation.enableValidation();
 
 buttonOpenPopupEdit.addEventListener('click', event => { 
-    popupNameInput.value =  nameTitle.textContent;
-    popupProfessionInput.value = professionSubtitle.textContent;
+    popupNameInput.value =  userInfo.getUserInfo().name;
+    popupProfessionInput.value = userInfo.getUserInfo().profession;
     popupEdit.open();
-    
 });
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     popupNewPlace.open();
 });
+
+function generateCard(item) {
+    return new Card(item.name, item.link, '#element-template', (name, link) => {
+        popupPicture.open(name, link);
+    }).generateCard();
+};
