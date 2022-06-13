@@ -1,9 +1,9 @@
-import { Card } from "../scripts/Card.js";
-import { FormValidator } from "../scripts/FormValidator.js";
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
 import '../pages/index.css';
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { Section } from "../scripts/Section.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { Section } from "../components/Section.js";
 
 import {
     elemConfig,
@@ -13,11 +13,11 @@ import {
     popupNewPlaceForm,
     popupNameInput,
     popupProfessionInput,
-    nameTitle,
-    professionSubtitle,
-    initialCards
+    initialCards,
+    
+
 } from '../utils/constants';
-import { UserInfo } from "../scripts/UserInfo.js";
+import { UserInfo } from "../components/UserInfo.js";
 
 
 const userInfo = new UserInfo();
@@ -46,9 +46,11 @@ buttonOpenPopupEdit.addEventListener('click', event => {
     popupNameInput.value =  userInfo.getUserInfo().name;
     popupProfessionInput.value = userInfo.getUserInfo().profession;
     popupEdit.open();
+    EditFormValidation._disableSubmitButton(EditFormValidation._button);
 });
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     popupNewPlace.open();
+    NewPlaceFormValidation._disableSubmitButton(NewPlaceFormValidation._button);
 });
 
 function generateCard(item) {

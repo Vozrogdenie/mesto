@@ -29,11 +29,11 @@ export class FormValidator {
     };
       
     _setEventListeners = () => {
-        this._toggleButtonState ();
+        this._toggleButtonState (this._inputs , this._button);
         this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', function () {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState ()
+                this._toggleButtonState(this._inputs, this._button)
             }.bind(this));
         });
     };
@@ -45,19 +45,43 @@ export class FormValidator {
         this._setEventListeners(); 
     };
     
-    _hasInvalidInput (){
+    _hasInvalidInput (inputs){
         return this._inputs.some((inputElement) => {   
             return !inputElement.validity.valid;
         });
     }; 
 
-    _toggleButtonState = () => {
-        if(this._hasInvalidInput()){
-                this._button.classList.add(this._elemConfig.submitButtonSelector);
-                this._button.setAttribute("disabled", true);
-        } else {
-            this._button.classList.remove(this._elemConfig.submitButtonSelector);
-            this._button.removeAttribute("disabled");
-        };
+    _addSubmitButton(button) {
+       button.classList.remove(this._elemConfig.inactiveButtonClass);
+       button.removeAttribute("disabled");
+    };
+    
+    _disableSubmitButton(button) {
+      button.classList.add(this._elemConfig.inactiveButtonClass);
+      button.setAttribute("disabled", true);
     }; 
-};
+
+    _toggleButtonState(inputs, button){
+        if (this._hasInvalidInput(inputs)){
+            this._disableSubmitButton(button)
+        } else {
+            this._addSubmitButton(button);
+        };
+    };
+    
+resetValidation(button) {
+    this._inputs.forEach((inputElement) => {
+        this._toggleButtonState(this._inputs, button);
+        this._hideInputError(inputElement);
+    });
+  }; 
+
+// _toggleButtonState = () => {
+//     if(this._inputs.filter(el => el.value.length === 0).length > 0){
+//         this._disableSubmitButton();
+//     } else if (this._hasInvalidInput()){
+//         this._disableSubmitButton()
+//     } else {
+//         this._addSubmitButton();
+
+    };
