@@ -22,6 +22,8 @@ export class PopupWithForm extends Popup {
             this._handleFormSubmit(this._getInputValues());
             this.close();
         });
+        this._popupSelector.addEventListener('click', this._closeOverlay);
+        this._popupSelector.querySelector('button').addEventListener('click', this._closeButton);
     };
 
     close() {

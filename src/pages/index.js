@@ -30,6 +30,7 @@ const popupEdit = new PopupWithForm('.popup_edit', (inputs) => {
     userInfo.setUserInfo(inputs.name, inputs.profession);
 });
 popupEdit.setEventListeners();
+popupPicture.setEventListeners();
 
 const popupNewPlace = new PopupWithForm('.popup_new-place', (inputs) => {
     const card = generateCard({ name: inputs.title, link: inputs.url });
@@ -51,6 +52,7 @@ buttonOpenPopupEdit.addEventListener('click', event => {
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     popupNewPlace.open();
     NewPlaceFormValidation._disableSubmitButton(NewPlaceFormValidation._button);
+
 });
 
 function generateCard(item) {
