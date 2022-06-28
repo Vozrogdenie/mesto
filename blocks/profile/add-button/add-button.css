@@ -1,0 +1,13 @@
+.add-button {
+    margin: 35px 0 35px 244px;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    padding: 14px 64px 14px 64px;
+}
+
+@media (max-width:800px) {
+    .add-button {
+        padding: 17px 134px 17px 132px;
+        margin: 36px auto 36px auto;
+    }
+}

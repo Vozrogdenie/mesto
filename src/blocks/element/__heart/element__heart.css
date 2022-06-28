@@ -1,7 +1,0 @@
-.element__heart {
-  cursor: pointer;
-}
-
-.element__heart:hover{
-    opacity: 0.5;
-}
