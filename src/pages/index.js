@@ -60,3 +60,49 @@ function generateCard(item) {
         popupPicture.open(name, link);
     }).generateCard();
 };
+
+//все ниже
+
+
+//renderLoading(true);
+
+
+// function search(url, authorization){ 
+//    return fetch(`hhttps://mesto.nomoreparties.co/${url}/${authorization}/`)}
+// form.addEventListener('submit', function submit(e) {
+//    e.preventDefault();
+//     search(form.elements.url.value, form.elements.authorization.value)
+//     .then((res)=>{
+//          if(res.ok){
+//            return res.json()
+//           }
+//           return Promise.reject(res.status)
+//           })
+//           .then((res)=>{
+//             renderResult(res.name)
+//           })
+//           .catch((err)=>{
+//           renderError(`Ошибка: ${err}`)
+//           })
+//           .finally(() => {
+//            renderLoading(false);
+//           });
+//         });
+        
+//   function renderResult(text){
+//     result.textContent = text;
+//      error.textContent = '';
+//    }
+//    function renderError(err){
+//      result.textContent = '';
+//      error.textContent = err;
+//    }
+
+   //функция когда идет загрузка сохранения картинки
+//    function renderLoading(isLoading){
+// if(isLoading){
+//     submitButtonSelector.innerText = 'Сохранение...'
+// }else{
+//     submitButtonSelector.innerText = 'Сохранить'
+// }
+//    }

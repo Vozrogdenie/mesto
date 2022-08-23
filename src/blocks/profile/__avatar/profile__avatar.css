@@ -9,3 +9,7 @@
         align-self: center;   
     }
 }
+
+.profile__avatar:hover {
+    background: url(edit.svg);
+}

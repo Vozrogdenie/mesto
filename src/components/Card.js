@@ -40,4 +40,10 @@ export class Card {
     _handleTrachPopup(){
         this._element.remove();
     };
+
+    _setEventListenersTrach(){ //навесить нужно попап - вы уверены?
+        this._element.querySelector('.element__trach').addEventListener('click', () => {
+            
+        }); 
+    }
 };

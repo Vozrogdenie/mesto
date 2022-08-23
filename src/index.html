@@ -12,7 +12,9 @@
     <main class="content">
         <section class="profile">
             <div class="profile__box">
+                <button type="button" class="button" aria-label="Кнопка редактирования аватарки"> <!--добавила баттон-->
                     <img src="<%=require('./images/image.jpg')%>" class="profile__avatar" alt="Аватар">
+                </button>
                 <div class="profile__info">
                     <div class="profile__titleicon">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -56,6 +58,28 @@
                         <button type="submit" class="popup__submit-button">Добавить</button>
                     </form>
             </div>
+        </section>
+        <section class="popup popup__you-sure"><!--добавила новый попап-->
+            <div class="popup__container">
+                <button class="button" type="button">
+                    <img class="popup__close" src="<%=require('./images/Close.png')%>" alt="Кнопка закрытия">
+                </button> 
+                <h2 class="popup__title">Вы уверены?</h2>
+                <button type="submit" class="popup__submit-button">Да</button>
+            </div>
+        <section class="popup popup__new-avatar"><!--добавила новый попап-->
+            <div class="popup__container">
+                <button class="button" type="button">
+                    <img class="popup__close" src="<%=require('./images/Close.png')%>" alt="Кнопка закрытия">
+                </button>
+                <h2 class="popup__title">Обновить аватар?</h2>
+                    <form name="card-form" class="popup__new-place-form popup__form" novalidate>
+                        <input class="popup__input popup__input_value_url" name="url" type="url" placeholder="Ссылка на картинку" required>
+                        <span class="popup__input-url-error"></span>
+                        <button type="submit" class="popup__submit-button">Сохранить</button>
+                    </form>
+            </div>
+        </section>
         </section>
         <section class="elements"></section>
             <div class="popup popup_type_picture">
