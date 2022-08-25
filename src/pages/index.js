@@ -52,7 +52,7 @@ const popupNewPlace = new PopupWithForm('.popup_new-place', (inputs) => {
 });
 popupNewPlace.setEventListeners();
 
-const popupYouSure = new PopupYouSure('.popup__you-sure', (element, id) => {
+const popupYouSure = new PopupYouSure('.popup_you-sure', (element, id) => {
     popupYouSure.handleSaving();
     API.deleteCard(id).then(() => {
         element.remove();
@@ -61,7 +61,7 @@ const popupYouSure = new PopupYouSure('.popup__you-sure', (element, id) => {
 });
 popupYouSure.setEventListeners();
 
-const popupNewAvatar = new PopupWithForm('.popup__new-avatar', (inputs)=>{
+const popupNewAvatar = new PopupWithForm('.popup_new-avatar', (inputs)=>{
     popupNewAvatar.handleSaving();
     API.changeAvatar(inputs.url).then(() => {
         userInfo._avatar.src = inputs.url;
