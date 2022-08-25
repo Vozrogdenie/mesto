@@ -3,6 +3,9 @@
     height: 120px;
     border-radius: 50%;
 }
+.profile__avatar:hover {
+    cursor: pointer;
+}
 
 @media all and (max-width: 910px) {
     .profile__avatar {
@@ -10,6 +13,3 @@
     }
 }
 
-.profile__avatar:hover {
-    background: url(edit.svg);
-}

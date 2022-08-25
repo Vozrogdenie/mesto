@@ -1,6 +1,7 @@
 export class Popup {
     constructor(popupSelector) {
         this._popupSelector = document.querySelector(popupSelector);
+        this._submitButton = this._popupSelector.querySelector('.popup__submit-button');
     };
   
     open() {
@@ -33,4 +34,12 @@ export class Popup {
     _closeButton = (event) => {
         this.close();
     };
+
+    handleSaving() {
+        this._submitButton.textContent = 'Сохранение...';
+    };
+
+    handleSaved() {
+        this._submitButton.textContent = 'Сохранить';
+    }
 };

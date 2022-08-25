@@ -3,8 +3,8 @@ import { FormValidator } from "../components/FormValidator.js";
 import '../pages/index.css';
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupYouSure } from "../components/PopupYouSure.js";
 import { Section } from "../components/Section.js";
-
 import {
     elemConfig,
     buttonOpenPopupEdit,
@@ -13,30 +13,63 @@ import {
     popupNewPlaceForm,
     popupNameInput,
     popupProfessionInput,
-    initialCards,
-    
-
+    api_url,
+    api_auth,
+    changeAvatarButton,
 } from '../utils/constants';
 import { UserInfo } from "../components/UserInfo.js";
+import Api from "../components/API.js";
 
-
+const API = new Api(api_url, api_auth);
 const userInfo = new UserInfo();
-
-const section = new Section(initialCards, generateCard, '.elements');
-section.renderItems();
+let section;
+API.getApiCards().then(res => {
+    section = new Section(res, generateCard, '.elements');
+    section.renderItems();
+});
+API.getApiUsers().then(res => {
+    userInfo.setUserInfo(res.name, res.about, res.avatar)
+})
 
 const popupPicture = new PopupWithImage('.popup_type_picture');
 const popupEdit = new PopupWithForm('.popup_edit', (inputs) => {
-    userInfo.setUserInfo(inputs.name, inputs.profession);
+    popupEdit.handleSaving();
+    API.setApiUsers(inputs.name, inputs.profession).then(() => {
+        userInfo.setUserInfo(inputs.name, inputs.profession);
+        popupEdit.handleSaved();
+    });
 });
 popupEdit.setEventListeners();
 popupPicture.setEventListeners();
 
 const popupNewPlace = new PopupWithForm('.popup_new-place', (inputs) => {
-    const card = generateCard({ name: inputs.title, link: inputs.url });
-    section.addItem(card);
+    popupNewPlace.handleSaving();
+    API.createCards({ name: inputs.title, link: inputs.url }).then(newCard => {
+        const card = generateCard({ name: inputs.title, link: inputs.url, owner: { _id: newCard.owner._id }, _id: newCard._id, likes: newCard.likes });
+        section.addItem(card);
+        popupNewPlace.handleSaved(); 
+    }) 
 });
 popupNewPlace.setEventListeners();
+
+const popupYouSure = new PopupYouSure('.popup__you-sure', (element, id) => {
+    popupYouSure.handleSaving();
+    API.deleteCard(id).then(() => {
+        element.remove();
+    popupYouSure.handleSaved(); 
+    });
+});
+popupYouSure.setEventListeners();
+
+const popupNewAvatar = new PopupWithForm('.popup__new-avatar', (inputs)=>{
+    popupNewAvatar.handleSaving();
+    API.changeAvatar(inputs.url).then(() => {
+        userInfo._avatar.src = inputs.url;
+    popupNewAvatar.handleSaved();
+    })
+});
+popupNewAvatar.setEventListeners();
+
 
 const EditFormValidation = new FormValidator(elemConfig, popupEditForm);
 EditFormValidation.enableValidation();
@@ -54,55 +87,15 @@ buttonOpenPopupNewPlace.addEventListener('click', event => {
     NewPlaceFormValidation._disableSubmitButton(NewPlaceFormValidation._button);
 
 });
+changeAvatarButton.addEventListener('click', event => {
+    popupNewAvatar.open();
+    NewPlaceFormValidation._disableSubmitButton(NewPlaceFormValidation._button);
+})
 
 function generateCard(item) {
-    return new Card(item.name, item.link, '#element-template', (name, link) => {
+    return new Card(item.name, item.link, item.owner._id, item._id, item.likes, '#element-template', (name, link) => {
         popupPicture.open(name, link);
+    }, (element, id) => {
+        popupYouSure.open(element, id);
     }).generateCard();
 };
-
-//все ниже
-
-
-//renderLoading(true);
-
-
-// function search(url, authorization){ 
-//    return fetch(`hhttps://mesto.nomoreparties.co/${url}/${authorization}/`)}
-// form.addEventListener('submit', function submit(e) {
-//    e.preventDefault();
-//     search(form.elements.url.value, form.elements.authorization.value)
-//     .then((res)=>{
-//          if(res.ok){
-//            return res.json()
-//           }
-//           return Promise.reject(res.status)
-//           })
-//           .then((res)=>{
-//             renderResult(res.name)
-//           })
-//           .catch((err)=>{
-//           renderError(`Ошибка: ${err}`)
-//           })
-//           .finally(() => {
-//            renderLoading(false);
-//           });
-//         });
-        
-//   function renderResult(text){
-//     result.textContent = text;
-//      error.textContent = '';
-//    }
-//    function renderError(err){
-//      result.textContent = '';
-//      error.textContent = err;
-//    }
-
-   //функция когда идет загрузка сохранения картинки
-//    function renderLoading(isLoading){
-// if(isLoading){
-//     submitButtonSelector.innerText = 'Сохранение...'
-// }else{
-//     submitButtonSelector.innerText = 'Сохранить'
-// }
-//    }

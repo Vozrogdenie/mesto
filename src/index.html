@@ -12,9 +12,10 @@
     <main class="content">
         <section class="profile">
             <div class="profile__box">
-                <button type="button" class="button" aria-label="Кнопка редактирования аватарки"> <!--добавила баттон-->
                     <img src="<%=require('./images/image.jpg')%>" class="profile__avatar" alt="Аватар">
-                </button>
+                    <div class="profile__overlay">
+                        <img src="<%=require('./images/eeedit.png')%>" class='profile__icon-edit'alt="Кнопка редактирования аватара">
+                    </div>
                 <div class="profile__info">
                     <div class="profile__titleicon">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -67,6 +68,7 @@
                 <h2 class="popup__title">Вы уверены?</h2>
                 <button type="submit" class="popup__submit-button">Да</button>
             </div>
+        </section>
         <section class="popup popup__new-avatar"><!--добавила новый попап-->
             <div class="popup__container">
                 <button class="button" type="button">
@@ -79,7 +81,6 @@
                         <button type="submit" class="popup__submit-button">Сохранить</button>
                     </form>
             </div>
-        </section>
         </section>
         <section class="elements"></section>
             <div class="popup popup_type_picture">
@@ -99,9 +100,13 @@
                 <img class="element__item" src="#" alt="">    
                 <div class="element__info">
                     <h2 class="element__text"></h2>
-                    <button type="button" class="button" aria-label="сердешко">
-                        <img class="element__heart" src="<%=require('./images/Vectorheartnew.svg')%>" alt="кнопка сердешки">
-                    </button>
+                    <div>
+                        <button type="button" class="button" aria-label="сердешко">
+                            <img class="element__heart" src="<%=require('./images/Vectorheartnew.svg')%>" alt="кнопка сердешки">
+                        </button>
+                        <div class="element__heart-count"></div>
+                    </div>
+
                 </div>
             </div>
         </template>
