@@ -1,19 +1,17 @@
-import Api from "./API";
-import { api_url, api_auth } from "../utils/constants";
-
-const API = new Api(api_url, api_auth);
+import { API, currentOwnerId } from "../pages/index";
 
 export class Card {
-    constructor(name, link, owner, id, likes, cardSelector, handleCardClick, handleCardDelete){
+    constructor(name, link, owner, id, likes, cardSelector, handleCardClick, handleCardDelete, handleCardLike){
         this._name = name;
         this._link = link;
         this._cardOwner = owner;
-        this._owner = "57839dde7b0b2444fb58bba3";
+        this._owner = currentOwnerId;
         this._id = id;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
         this._handleCardDelete = handleCardDelete;
         this._likes = likes;
+        this._handleCardLike = handleCardLike;
     };
 
 
@@ -27,9 +25,13 @@ export class Card {
     generateCard(){
         this._element = this._getTemplate();
         this._element.querySelector('.element__item').src = this._link;
+        this._element.querySelector('.element__item').alt = this._name;
         this._element.querySelector('.element__text').textContent = this._name;
         this._element.querySelector('.element__heart-count').textContent = this._likes.length;
         if (this._cardOwner !== this._owner) this._element.querySelector(".element__trach").remove();
+        if (this._likes.find(el => el._id === this._owner) !== undefined) {
+            this._element.querySelector('.element__heart').classList.add('element__active_heart');
+        }
         this._setEventListeners();
         return this._element;
     };
@@ -51,22 +53,14 @@ export class Card {
     };
 
     _handleLikeClick() {
-        if (this._likes.find(el => el._id === this._owner) !== undefined) {
-            API.removeLike(this._id).then(res => {
-                this._likes = res.likes;
-                this._element.querySelector('.element__heart-count').textContent = res.likes.length;
-                this._element.querySelector('.element__heart').classList.remove('element__active_heart')
-            });
-        } else {
-            API.addLike(this._id).then(res => {
-                this._likes = res.likes;
-                this._element.querySelector('.element__heart-count').textContent = res.likes.length;
-                this._element.querySelector('.element__heart').classList.add('element__active_heart')
-            });;
-        };
+        this._handleCardLike(this);
     };
 
     _handleTrachPopup(){
-        this._handleCardDelete(this._element, this._id);
+        this._handleCardDelete(this);
     };
+
+    removeCard() {
+        this._element.remove();
+    }
 };

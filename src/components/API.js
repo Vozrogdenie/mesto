@@ -5,9 +5,10 @@ export default class Api {
     }
     
     _handleResponce(res){
-        if (res.ok) {
-            return res.json();
+        if (!res.ok) {
+            return Promise.reject(`Ошибка: ${res.status}`);
         }
+        return res.json();
     }
     async getApiCards(){
         return fetch(`${this._url}/cards`, {

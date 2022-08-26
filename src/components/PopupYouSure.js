@@ -5,21 +5,18 @@ export class PopupYouSure extends Popup {
         super(popupSelector);
         this._submitButton = this._popupSelector.querySelector(".popup__submit-button");
         this._submitHandler = submitHandler;
-        this._id;
-        this._element;
+        this._card;
     };
 
-    open(element, id) {
+    open(card) {
         super.open();
-        this._id = id;
-        this._element = element;
+        this._card = card;
     }
 
     setEventListeners() {
         this._submitButton.addEventListener('click', (evt) => {
             evt.preventDefault();
-            this._submitHandler(this._element, this._id);
-            this.close();
+            this._submitHandler(this._card);
         });
         this._popupSelector.addEventListener('click', this._closeOverlay);
         this._popupSelector.querySelector('button').addEventListener('click', this._closeButton);

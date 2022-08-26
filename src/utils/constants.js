@@ -15,6 +15,7 @@ export const popupNewPlace = document.querySelector('.popup_new-place');
 export const buttonOpenPopupNewPlace = document.querySelector('.add-button');
 export const buttonClosePopupNewPlace = popupNewPlace.querySelector('.popup__close');
 export const popupNewPlaceForm = document.querySelector('.popup__new-place-form');
+export const popupNewAvatarForm = document.querySelector('.popup__new-avatar-form');
 export const elementTemplate = document.querySelector('#element-template').content;
 export const sectionElements = document.querySelector('.elements');
 export const picture = document.querySelector('.popup_type_picture');

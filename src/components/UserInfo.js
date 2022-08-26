@@ -20,4 +20,8 @@ export class UserInfo {
         this._profession.textContent = profession;
         if (avatar) this._avatar.src = avatar;
     };
+
+    setUserAvatar(avatar) {
+        this._avatar.src = avatar;
+    }
 };
