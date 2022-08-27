@@ -3,7 +3,7 @@ export class FormValidator {
         this._elemConfig = elemConfig;
         this._form = form;
         this._inputs = Array.from(this._form.querySelectorAll(this._elemConfig.inputSelector));
-        this._button = this._form.querySelector(this._elemConfig.submitButtonSelector)
+        this.button = this._form.querySelector(this._elemConfig.submitButtonSelector)
     };
 
     _showInputError = (inputElement, errorMessage) => {
@@ -29,11 +29,11 @@ export class FormValidator {
     };
       
     _setEventListeners = () => {
-        this._toggleButtonState (this._inputs , this._button);
+        this._toggleButtonState (this._inputs , this.button);
         this._inputs.forEach((inputElement) => {
             inputElement.addEventListener('input', function () {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState(this._inputs, this._button)
+                this._toggleButtonState(this._inputs, this.button)
             }.bind(this));
         });
     };

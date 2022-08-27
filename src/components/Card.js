@@ -1,7 +1,7 @@
-import { API, currentOwnerId } from "../pages/index";
+// import { currentOwnerId } from "../pages/index";
 
 export class Card {
-    constructor(name, link, owner, id, likes, cardSelector, handleCardClick, handleCardDelete, handleCardLike){
+    constructor(name, link, owner, id, likes, cardSelector, handleCardClick, handleCardDelete, handleCardLike, currentOwnerId){
         this._name = name;
         this._link = link;
         this._cardOwner = owner;
@@ -12,6 +12,7 @@ export class Card {
         this._handleCardDelete = handleCardDelete;
         this._likes = likes;
         this._handleCardLike = handleCardLike;
+        this._currentOwnerId = currentOwnerId;
     };
 
 
@@ -51,6 +52,18 @@ export class Card {
             this._handleCardClick(this._name, this._link);
         });
     };
+
+    deleteLike(res){
+        this._likes = res.likes;
+        this._element.querySelector('.element__heart-count').textContent = res.likes.length;
+        this._element.querySelector('.element__heart').classList.remove('element__active_heart')
+    }
+
+    appendLike(res){
+        this._likes = res.likes;
+        this._element.querySelector('.element__heart-count').textContent = res.likes.length;
+        this._element.querySelector('.element__heart').classList.add('element__active_heart');
+    }
 
     _handleLikeClick() {
         this._handleCardLike(this);

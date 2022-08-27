@@ -18,7 +18,7 @@ export class PopupYouSure extends Popup {
             evt.preventDefault();
             this._submitHandler(this._card);
         });
-        this._popupSelector.addEventListener('click', this._closeOverlay);
-        this._popupSelector.querySelector('button').addEventListener('click', this._closeButton);
+        super.setEventListeners();
+        this._popupSelector;
     };
 };

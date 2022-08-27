@@ -24,9 +24,11 @@ import Api from "../components/API.js";
 export const API = new Api(api_url, api_auth);
 const userInfo = new UserInfo();
 let section;
-export let currentOwnerId;
+let currentOwnerId;
 
-Promise.all([usersRequest, cardsRequest]);
+Promise.all([usersRequest, cardsRequest]).catch((err) => {
+    console.log(err);
+});
 const usersRequest = API.getApiUsers().then(res => {
     currentOwnerId = res._id;
     userInfo.setUserInfo(res.name, res.about, res.avatar)
@@ -107,16 +109,16 @@ buttonOpenPopupEdit.addEventListener('click', event => {
     popupNameInput.value =  userInfo.getUserInfo().name;
     popupProfessionInput.value = userInfo.getUserInfo().profession;
     popupEdit.open();
-    editFormValidation.disableSubmitButton(editFormValidation._button);
+    editFormValidation.disableSubmitButton(editFormValidation.button);
 });
 buttonOpenPopupNewPlace.addEventListener('click', event => {
     popupNewPlace.open();
-    newPlaceFormValidation.disableSubmitButton(newPlaceFormValidation._button);
+    newPlaceFormValidation.disableSubmitButton(newPlaceFormValidation.button);
 
 });
 changeAvatarButton.addEventListener('click', event => {
     popupNewAvatar.open();
-    newPlaceFormValidation.disableSubmitButton(newPlaceFormValidation._button);
+    newPlaceFormValidation.disableSubmitButton(newPlaceFormValidation.button);
 })
 
 function generateCard(item) {
@@ -127,16 +129,12 @@ function generateCard(item) {
     }, (card) => {
         if (card._likes.find(el => el._id === card._owner) !== undefined) {
             API.removeLike(card._id).then(res => {
-                card._likes = res.likes;
-                card._element.querySelector('.element__heart-count').textContent = res.likes.length;
-                card._element.querySelector('.element__heart').classList.remove('element__active_heart')
+                card.deleteLike(res);
             });
         } else {
             API.addLike(card._id).then(res => {
-                card._likes = res.likes;
-                card._element.querySelector('.element__heart-count').textContent = res.likes.length;
-                card._element.querySelector('.element__heart').classList.add('element__active_heart');
+                card.appendLike(res);
             });
         };
-    }).generateCard();
+    }, currentOwnerId).generateCard();
 };
