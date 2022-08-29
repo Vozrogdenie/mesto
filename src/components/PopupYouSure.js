@@ -19,6 +19,5 @@ export class PopupYouSure extends Popup {
             this._submitHandler(this._card);
         });
         super.setEventListeners();
-        this._popupSelector;
     };
 };
